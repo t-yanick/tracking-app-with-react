@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Footer from '../components/Footer';
 import Home from '../pages/Home';
 import LoginPage from '../pages/LoginPage';
 
@@ -16,6 +17,7 @@ const AppRouter = () => (
           <Route exact path="/login" component={LoginPage} />
         </Switch>
       </div>
+      <Footer />
     </div>
   </BrowserRouter>
 );
