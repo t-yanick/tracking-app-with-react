@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 import Home from '../pages/Home';
 import LoginPage from '../pages/LoginPage';
+import Header from '../components/Header';
 
 const AppRouter = () => (
   <BrowserRouter>
     <div className="whole-container">
       Login Status
-      Header
+      <Header />
 
       <div className="container">
         <Switch>
