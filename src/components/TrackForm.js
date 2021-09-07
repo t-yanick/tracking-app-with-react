@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import pluralize from 'pluralize';
+// import pluralize from 'pluralize';
 
 const TrackForm = ({
   items, targetDate,
@@ -29,7 +29,7 @@ const TrackForm = ({
           <input type="date" onChange={onDateChange} value={date} />
         </div>
         <div className="track-form__group mb3">
-          {items.map((item) => (
+          {/* {items.map((item) => (
             <div className="track-form__item" key={item.id}>
               <div className="track-form__icon">
                 <span className="iconify" data-icon={item.icon} data-inline="false" />
@@ -46,7 +46,7 @@ const TrackForm = ({
               <div className="track-form__unit">plural of units</div>
               <div className="track-form__target">target of item</div>
             </div>
-          ))}
+          )) } */}
         </div>
         <button type="submit" className="btn dark">Save</button>
       </form>
