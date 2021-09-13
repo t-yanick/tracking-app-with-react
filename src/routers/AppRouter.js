@@ -6,6 +6,7 @@ import Home from '../pages/Home';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import AddTrack from '../pages/AddTrack';
+import EditTrack from '../pages/EditTrack';
 import Header from '../components/Header';
 
 const AppRouter = () => (
@@ -20,6 +21,7 @@ const AppRouter = () => (
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/track/create" component={AddTrack} />
+          <Route exact path="/track/:id/edit" component={EditTrack} />
         </Switch>
       </div>
       <Footer />
