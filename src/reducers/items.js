@@ -1,6 +1,6 @@
 const defaultItemsState = [];
 
-const ItemsReducer = (state = defaultItemsState, action) => {
+const itemsReducer = (state = defaultItemsState, action) => {
   switch (action.type) {
     case 'ADD_ITEMS':
       return action.items;
@@ -9,4 +9,4 @@ const ItemsReducer = (state = defaultItemsState, action) => {
   }
 };
 
-export default ItemsReducer;
+export default itemsReducer;
