@@ -12,6 +12,9 @@ import TrackItems from '../pages/TrackItems';
 import Progress from '../pages/Progress';
 import More from '../pages/More';
 import NotFound from '../pages/NotFound';
+import AdminHome from '../pages/AdminHome';
+import AdminAddItem from '../pages/AdminAddItem';
+import AdminEditItem from '../pages/AdminEditItem';
 import Header from '../components/Header';
 import LoginStatus from '../components/LoginStatus';
 
@@ -25,13 +28,16 @@ const AppRouter = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" render={(props) => (<LoginPage history={props.history} />)} />
-          <Route exact path="/signup" render={(props) => (<SignUpPage history={props.history} />)} />
+          <Route exact path="/signup" render={(props) => (<SignupPage history={props.history} />)} />
           <Route exact path="/track/create" render={(props) => (<AddTrack history={props.history} />)} />
           <Route exact path="/tracks/:id" component={TrackItems} />
           <Route exact path="/track/:id/edit" component={EditTrack} />
           <Route exact path="/tracks" component={TrackList} />
           <Route exact path="/progress" component={Progress} />
           <Route exact path="/more" component={More} />
+          <Route exact path="/admin" component={AdminHome} />
+          <Route exact path="/admin/item/create" component={AdminAddItem} />
+          <Route exact path="/admin/item/:id" component={AdminEditItem} />
           <Route component={NotFound} />
         </Switch>
       </div>
