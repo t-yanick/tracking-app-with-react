@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 import Chart from 'react-google-charts';
 import { GiTrophyCup } from 'react-icons/gi';
 import { BiChevronRight } from 'react-icons/bi';
+import calcAchieveTotalRate from '../helpers/calcAchieveTotalRate';
 
 const TrackListItem = ({ milSec, sameDateTrack, itemNum }) => {
   const [dateSign, setDateSign] = useState('');
+
+  const totalRate = calcAchieveTotalRate(sameDateTracks, itemNum) || 0;
+  const rateForChart = totalRate >= 100 ? 100 : totalRate;
+  const leftRateForChart = 100 - rateForChart;
 
   return (
     <div className={`tracks__item ${dateSign}`}>
