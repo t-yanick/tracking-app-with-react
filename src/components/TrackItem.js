@@ -12,7 +12,7 @@ const TrackItem = ({ item, result, targetDate }) => {
 
   return (
     <div className="items__item">
-      <Link to={ } className="items__item-link">
+      <Link to={`/track/${Number(targetDate)}/edit`} className="items__item-link">
         <div className="items__icon">
           <span className="iconify" data-icon={icon || 'bi:pen-fill'} data-line="false" />
         </div>
