@@ -45,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^5.53.0",
+    "webpack-dev-server": "^4.2.1",
+    "webpack-obfuscator": "^2.6.0"
   }
 }
