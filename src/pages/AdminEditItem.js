@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ItemForm from '../components/AdminItemForm';
+import { updateItem, removeItemFromDB } from '../helpers/restItems';
 
 const AdminEditItem = ({
   item, history, adminStatus, loginUser,
@@ -11,6 +13,36 @@ const AdminEditItem = ({
   const {
     id, title, unit, icon, target,
   } = item;
+
+  const runUpdateItem = async (id, title, unit, icon, target) => {
+    try {
+      setError('');
+      await updateItem(id, title, unit, icon, target);
+      history.push('/admin');
+    } catch {
+      setError('Sorry, unable to fetch data');
+    }
+  };
+
+  const runRemoveItemFromDB = async (id) => {
+    try {
+      setError('');
+      await removeItemFromDB(id);
+      history.push('/admin');
+    } catch {
+      setError('Sorry, Unable to remove item');
+    }
+  };
+
+  const handleSubmit = ({
+    title, unit, icon, target,
+  }) => {
+    runUpdateItem(title, unit, icon, target);
+  };
+
+  const onRemove = () => {
+    runRemoveItemFromDB(id);
+  };
 
   return adminStatus && loginUser ? (
     <div className="admin">
@@ -35,6 +67,13 @@ const AdminEditItem = ({
   ) : <Redirect to="/" />
 };
 
+const mapStateToProps = (state, props) => ({
+  items: state.items,
+  item: state.items.find((item) => item.id === Number(props.match.params.id)),
+  adminStatus: state.user.user.admin,
+  loginUser: state.user.logIn,
+});
+
 AdminEditItem.propTypes = {
   item: PropTypes.instanceOf(Object),
   history: PropTypes.instanceOf(Object),
@@ -48,4 +87,4 @@ AdminEditItem.defaultProps = {
   adminStatus: false,
 };
 
-export default AdminEditItem;
+export default connect(mapStateToProps)(AdminEditItem);
