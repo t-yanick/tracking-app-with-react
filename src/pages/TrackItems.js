@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import Chart from 'react-google-charts';
+import { moment } from '../helpers/api';
+import { getItems } from '../helpers/restItems';
+import { addTracks } from '../actions/tracks';
+import { addTrackDates } from '../actions/trackDates';
+import { removeTrackFromDB, getTracks } from '../helpers/restTracks';
 import TrackItem from '../components/TrackItem';
+import addItems from '../actions/items';
 import calcAchieveTotalRate from '../helpers/calcAchieveTotalRate';
 
 const TrackItems = ({
@@ -21,6 +28,63 @@ const TrackItems = ({
   const [error, setError] = useState('');
   const [msg, setMsg] = useState('');
 
+  const runGetItems = async () => {
+    try {
+      const response = await getItems();
+      if (response.length > 0) {
+        setError('');
+        addItems(response);
+      } else {
+        setError('No Items');
+      }
+    } catch {
+      setError('Unable to fetch the item data');
+    }
+  };
+
+  const runGetTracks = async () => {
+    try {
+      const response = await getTracks();
+      if (response) {
+        setError('');
+        addTracks(response.records);
+        addTrackDates(response.record_dates);
+      } else {
+        setError('No Tracks');
+      }
+    } catch {
+      setError('Unable to fetch the data');
+    }
+  };
+
+  useEffect(() => {
+    if (loginUser) {
+      runGetItems();
+      runGetTracks();
+    }
+  }, []);
+
+  const runRemoveTrackFromDB = async (id) => {
+    try {
+      setError('');
+      await removeTrackFromDB(id);
+    } catch {
+      setError('Sorry, unable to remove the item');
+    }
+  };
+
+  const handleRemoveTrack = () => {
+    sameDateTracks.forEach((track) => {
+      runRemoveTrackFromDB(track.id);
+    });
+    if (!error) {
+      setMsg('Removing now...');
+      setTimeout(() => {
+        history.push('/tracks');
+      }, 800);
+    }
+  };
+
   const totalRate = calcAchieveTotalRate(sameDateTracks, items.length) || 0;
   const rateForChart = totalRate >= 100 ? 100 : totalRate;
   const leftRateForChart = 100 - rateForChart;
@@ -34,7 +98,7 @@ const TrackItems = ({
           <Link to={trackDates[currentIndex + 1] || trackDates[currentIndex] || ''}>
             <AiFillCaretLeft />
           </Link>
-          <span>date mm dd yy</span>
+          <span>{moment(date).format('MMM Do YYYY')}</span>
           <Link to={trackDates[currentIndex + 1] || trackDates[currentIndex] || ''}>
             <AiFillCaretRight />
           </Link>
@@ -88,6 +152,21 @@ const TrackItems = ({
   ) : <Redirect to="/" />
 };
 
+const mapStateToProps = (state, props) => ({
+  sameDateTracks: state.tracks.filter((track) => track.date === props.match.params.id),
+  items: state.items,
+  trackDates: state.trackDates,
+  loginUser: state.user.logIn,
+  date: Number(props.match.params.id),
+  currentIndex: state.trackDates.findIndex((date) => date === props.match.params.id),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addItems: (items) => dispatch(addItems(items)),
+  addTracks: (tracks) => dispatch(addTracks(tracks)),
+  addTrackDates: (trackDates) => dispatch(addTrackDates(trackDates)),
+});
+
 TrackItems.propTypes = {
   addTracks: PropTypes.func,
   addTrackDates: PropTypes.func,
@@ -113,4 +192,4 @@ TrackItems.defaultProps = {
   currentIndex: -1,
 };
 
-export default TrackItems;
+export default connect(mapStateToProps, mapDispatchToProps)(TrackItems);

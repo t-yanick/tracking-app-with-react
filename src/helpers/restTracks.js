@@ -17,3 +17,9 @@ export const updateTrack = async (id, result, itemId, date) => {
     .then((response) => response.data).catch((error) => error);
   return response;
 };
+
+export const removeTrackFromDB = async (id) => {
+  const response = await sendRequestWithoutData('delete', `records/${id}`)
+    .then((response) => response).catch((error) => error);
+  return response;
+};
