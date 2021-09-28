@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Home from '../pages/Home';
 import LoginPage from '../pages/LoginPage';
@@ -15,7 +16,6 @@ import NotFound from '../pages/NotFound';
 import AdminHome from '../pages/AdminHome';
 import AdminAddItem from '../pages/AdminAddItem';
 import AdminEditItem from '../pages/AdminEditItem';
-import Header from '../components/Header';
 import LoginStatus from '../components/LoginStatus';
 
 const AppRouter = () => (
