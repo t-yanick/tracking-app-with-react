@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BiTargetLock } from 'react-icons/bi';
@@ -50,6 +51,11 @@ const More = ({ loginUser, userName }) => (loginUser ? (
   </div>
 ) : <Redirect to="/" />);
 
+const mapStateToProps = (state) => ({
+  loginUser: state.user.logIn,
+  userName: state.user.user.username,
+});
+
 More.propTypes = {
   loginUser: PropTypes.bool.isRequired,
   userName: PropTypes.string,
@@ -59,4 +65,4 @@ More.defaultProps = {
   userName: 'Anonymous',
 };
 
-export default More;
+export default connect(mapStateToProps)(More);
