@@ -28,7 +28,7 @@ const SignupPage = ({
       }
     } catch {
       setMsg('');
-      setErrors(['Sorry, signup was faild.']);
+      setErrors(['Sorry, signup failed.']);
     }
   };
 
