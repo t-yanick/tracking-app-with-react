@@ -13,7 +13,7 @@ export const loggedIn = async (username, password) => {
 };
 
 export const autoLogin = async (userId) => {
-  const response = await sendRequestWithData('post', 'auto_login', { user: { username, password } })
+  const response = await sendRequestWithData('post', 'auto_login', { user: { user_id: userId } })
     .then((response) => response.data).catch((error) => error);
   return response;
 };
