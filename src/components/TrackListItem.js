@@ -84,13 +84,13 @@ const TrackListItem = ({ milSec, sameDateTracks, itemNum }) => {
 
 TrackListItem.propTypes = {
   milSec: PropTypes.number,
-  sameDateTrack: PropTypes.instanceOf(Array),
+  sameDateTracks: PropTypes.instanceOf(Array),
   itemNum: PropTypes.number,
 };
 
 TrackListItem.defaultProps = {
   milSec: 0,
-  sameDateTrack: [],
+  sameDateTracks: [],
   itemNum: 0,
 };
 
