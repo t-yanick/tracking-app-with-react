@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.13.10",
-    "@babel/eslint-parser": "^7.13.10",
     "@babel/preset-env": "^7.12.13",
-    "@babel/preset-react": "^7.13.13",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -30,17 +27,21 @@
     "web-vitals": "^1.1.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/plugin-syntax-jsx": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
     "babel-eslint": "10.1.x",
-    "eslint": "7.11.x",
-    "eslint-config-airbnb": "18.1.x",
-    "eslint-plugin-import": "2.22.x",
-    "eslint-plugin-jsx-a11y": "6.2.x",
-    "eslint-plugin-react": "7.20.x",
-    "eslint-plugin-react-hooks": "2.5.x",
-    "stylelint": "13.3.x",
-    "stylelint-config-standard": "20.0.x",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "3.17.x"
+    "stylelint-scss": "^3.21.0"
   },
   "scripts": {
     "start": "react-scripts start",

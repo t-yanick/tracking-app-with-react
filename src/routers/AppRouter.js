@@ -50,7 +50,7 @@ AppRouter.propTypes = {
   history: PropTypes.instanceOf(Object),
 };
 
-AppRouter.propTypes = {
+AppRouter.defaultProps = {
   history: null,
 };
 
