@@ -1,4 +1,4 @@
-import { sendRequestWithData, sendRequestWithoutData } from "./api";
+import { sendRequestWithData, sendRequestWithoutData } from './api';
 
 export const getTracks = async () => {
   const response = await sendRequestWithoutData('get', 'records')

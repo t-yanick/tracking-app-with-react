@@ -44,7 +44,7 @@ const AdminItemForm = ({
       setError('');
       setInputTarget(value);
     } else {
-      setError('Please provide a number with 3 digits')
+      setError('Please provide a number with 3 digits');
     }
   };
 

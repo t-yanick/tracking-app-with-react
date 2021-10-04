@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ItemForm from '../components/AdminItemForm';
@@ -64,7 +64,7 @@ const AdminEditItem = ({
         <Link to="/admin" className="btn">Cancel & Back to Item List</Link>
       </div>
     </div>
-  ) : <Redirect to="/" />
+  ) : <Redirect to="/" />;
 };
 
 const mapStateToProps = (state, props) => ({

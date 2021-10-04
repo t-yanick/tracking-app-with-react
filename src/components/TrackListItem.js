@@ -18,7 +18,7 @@ const TrackListItem = ({ milSec, sameDateTracks, itemNum }) => {
     } else if (targetDay.isSame(moment().subtract(1, 'days'), 'day')) {
       setDateSign('yesterday');
     } else if (targetDay.isSameOrBefore(moment().subtract(7, 'days'))) {
-      setDateSign('lastweek')
+      setDateSign('lastweek');
     }
   };
 

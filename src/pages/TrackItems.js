@@ -149,7 +149,7 @@ const TrackItems = ({
         <Link to="/tracks" className="btn">Back to all tracks</Link>
       </div>
     </div>
-  ) : <Redirect to="/" />
+  ) : <Redirect to="/" />;
 };
 
 const mapStateToProps = (state, props) => ({

@@ -22,7 +22,7 @@ const AdminAddItem = ({ history, adminStatus, loginUser }) => {
     title, unit, icon, target,
   }) => {
     runAddNewItem(title, unit, icon, target);
-  }
+  };
 
   return adminStatus && loginUser ? (
     <div className="admin">
@@ -36,7 +36,7 @@ const AdminAddItem = ({ history, adminStatus, loginUser }) => {
         <Link to="/admin" className="btn">Back to Item List</Link>
       </div>
     </div>
-  ) : <Redirect to="/" />
+  ) : <Redirect to="/" />;
 };
 
 const mapStateToProps = (state, props) => ({

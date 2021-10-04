@@ -21,7 +21,7 @@ const EditTrack = ({
       if (response.length > 0) {
         addItems(response);
       } else {
-        setError('No Items')
+        setError('No Items');
       }
     } catch {
       setError('Unable to fetch the item data');
@@ -53,7 +53,7 @@ const EditTrack = ({
   const handleSubmit = (StrDate, state) => {
     Object.keys(state).forEach((key) => {
       const submitItemId = Number(key);
-      const submitItemValue = state[key]
+      const submitItemValue = state[key];
 
       const sameItemTrack = sameDateTracks.find((track) => track.item_id === submitItemId);
       if (sameItemTrack && submitItemValue) {

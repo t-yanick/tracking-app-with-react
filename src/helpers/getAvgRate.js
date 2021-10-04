@@ -1,4 +1,4 @@
-import { moment } from "./api";
+import { moment } from './api';
 
 const calcAvgAchieveRate = (customTrackdates, tracks) => {
   const arrForAchieveRateForMonth = [];
@@ -27,7 +27,7 @@ const getAvgAchieveRateForMonth = (trackDates, tracks) => {
   return calcAvgAchieveRate(customTrackdates, tracks);
 };
 
-//Average achievements rate for this week => today - week ago
+// Average achievements rate for this week => today - week ago
 const getAvgAchieveRateForThisWeek = (trackDates, tracks) => {
   const today = moment();
   const oneWeekAgo = moment().subtract(1, 'weeks');
@@ -38,7 +38,7 @@ const getAvgAchieveRateForThisWeek = (trackDates, tracks) => {
   return calcAvgAchieveRate(customTrackdates, tracks);
 };
 
-//Average achievements rate for last week => 1 week ago - 2 week ago
+// Average achievements rate for last week => 1 week ago - 2 week ago
 const getAvgAchieveRateForLastWeek = (trackDates, tracks) => {
   const oneWeekAgo = moment().subtract(1, 'weeks');
   const twoWeeksAgo = moment().subtract(2, 'weeks');
@@ -49,7 +49,7 @@ const getAvgAchieveRateForLastWeek = (trackDates, tracks) => {
   return calcAvgAchieveRate(customTrackdates, tracks);
 };
 
-//Average achievements rate for last 2 weeks => 2 weeks ago - 3 weeks ago
+// Average achievements rate for last 2 weeks => 2 weeks ago - 3 weeks ago
 const getAvgAchieveRateForTwoWeeksBefore = (trackDates, tracks) => {
   const twoWeeksAgo = moment().subtract(2, 'weeks');
   const threeWeeksAgo = moment().subtract(3, 'weeks');
@@ -60,7 +60,7 @@ const getAvgAchieveRateForTwoWeeksBefore = (trackDates, tracks) => {
   return calcAvgAchieveRate(customTrackdates, tracks);
 };
 
-//Average achievements rate for last 3 weeks => 3 weeks ago - 1 month ago
+// Average achievements rate for last 3 weeks => 3 weeks ago - 1 month ago
 const getAvgAchieveRateForThreeWeeksBefore = (trackDates, tracks) => {
   const threeWeeksAgo = moment().subtract(3, 'weeks');
   const oneMonthAgo = moment().subtract(1, 'months');

@@ -45,7 +45,7 @@ const AdminHome = ({
         <Link to="/admin/item/create" className="btn dark">Add Item</Link>
       </div>
     </div>
-  ) : <Redirect to="/" />
+  ) : <Redirect to="/" />;
 };
 
 const mapStateToProps = (state) => ({

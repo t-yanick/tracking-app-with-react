@@ -21,7 +21,7 @@ const AdminItemList = ({ items }) => {
         </div>
       );
     })}
-  </div>
+  </div>;
 };
 
 AdminItemList.propTypes = {

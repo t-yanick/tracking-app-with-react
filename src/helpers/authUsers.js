@@ -1,4 +1,4 @@
-import { sendRequestWithData } from "./api";
+import { sendRequestWithData } from './api';
 
 export const signedUp = async (username, password) => {
   const response = await sendRequestWithData('post', 'users', { user: { username, password } })

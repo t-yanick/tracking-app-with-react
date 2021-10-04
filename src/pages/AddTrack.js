@@ -9,7 +9,7 @@ import addItems from '../actions/items';
 import getItemTitles from '../helpers/getItemTitles';
 
 const AddTrack = ({
-  loginUser, tracks, history, items, addItems
+  loginUser, tracks, history, items, addItems,
 }) => {
   const [error, setError] = useState('');
   const [msg, setMsg] = useState('');

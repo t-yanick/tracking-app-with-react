@@ -13,7 +13,7 @@ const TrackForm = ({
 
   const onDateChange = (e) => {
     setDate(e.target.value);
-  }
+  };
 
   const handleInputChange = (value, nameItemNum) => {
     if (value.match(/^[0-9\s]{0,3}$/)) {

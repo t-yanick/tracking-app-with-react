@@ -13,7 +13,7 @@ import { getItems } from '../helpers/restItems';
 import addItems from '../actions/items';
 
 const Progress = ({
-  addTracks, loginUser, addTrackDates, trackDates, tracks, items, addItems
+  addTracks, loginUser, addTrackDates, trackDates, tracks, items, addItems,
 }) => {
   const [error, setError] = useState('');
 
@@ -24,7 +24,7 @@ const Progress = ({
         setError('');
         addItems(response);
       } else {
-        setError('No Items')
+        setError('No Items');
       }
     } catch {
       setError('Unable to fetch the item data');
@@ -39,7 +39,7 @@ const Progress = ({
         addTracks(response.records);
         addTrackDates(response.record_dates);
       } else {
-        setError('No Tracks')
+        setError('No Tracks');
       }
     } catch {
       setError('Unable to fetch data');
@@ -137,7 +137,7 @@ const Progress = ({
         <Link to="/progress" className="btn">Share</Link>
       </div>
     </div>
-  ) : <Redirect to="/" />
+  ) : <Redirect to="/" />;
 };
 
 const mapStateToProps = (state) => ({
