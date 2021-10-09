@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
+# Tracking App built with React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## About the Project
+This responsive web application was built with React and Redux as the final project at Microverse.
+I also built [REST API with Ruby on Rails](https://github.com/t-yanick/tracking-app-api) as the back-end for this application.
 
-In the project directory, you can run:
+In this app, you can manage database resources in API including add, edit, and remove records that you want to track. For example, you can track your daily progress in learning English.
 
-### `yarn start`
+I implemented these things:
+- Connected to the back-end API to send and receive data
+- With routes for each of the screens, so the user can easily go back and forward
+- Use Redux to store info used across the app, like the username
+- The project was deployed to Heroku and accessible online
+- Implemented user authentication from the front-end to the server
+- Created an admin panel to create / update / delete Items (things to measure)
+- Made the app responsive, creating both tablet and desktop versions, following design guidelines
+- Implemented the progress page with data charts that show the average achievements rate and total scores
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A list of commonly used resources that I find helpful is listed in the acknowledgments.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [SASS](https://sass-lang.com/)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Live Demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Live Demo Link](https://tracking-frontend-app.herokuapp.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `yarn eject`
+To get a local copy up and running follow these simple example steps.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. On the project GitHub page, navigate to the main page of the repository.
+2. Under the repository name, locate and click on a green button named `Code`. 
+3. Copy the project URL as displayed.
+4. If you're running the Windows Operating System, open your command prompt. On Linux, Open your terminal. 
+5. Change the current working directory to the location where you want the cloned directory to be made. Leave as it is if the current location is where you want the project to be. 
+6. Type git clone, and then paste the URL you copied in Step 3. <br>
+e.g. $ git clone https://github.com/yourUsername/yourProjectName 
+7. Press Enter. Your local copy will be created. 
+8. Go to helpers/baseUrl.js and rewrite the baseUrl like `http://localhost:3001/` so you can run this project in your local environment
+9. To run the server, run `npm start`
+10. To run the tests, run `npm test`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to use this app as a user
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. To start using this app as a user, you need to log in with a username and password. This login is authenticated by API
+2. Then, you can record your track for each item for each day: Idioms, Pronunciation, Reading, etc.
+3. On the all tracks page, you can check the past tracks you've made
+4. On the progress page, you can see your progress so far
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## How to manage items as an admin user
 
-## Learn More
+1. Like the ordinary user, you need to log in with a username and password as an admin user, which is required to be given the status of admin: true by the administrator for the API
+  * You can see how to create admin user in the [Readme file for the REST API](https://github.com/t-yanick/tracking-app-api)
+2. Then, you'll see the admin page. On this page, the items that are added by administrators will show
+3. By clicking the "Add item" button, it shows the form, and you can add an item
+4. By clicking each item, you can edit it
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
 
-### Code Splitting
+👤 **Tazoh Yanick Tazoh**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- GitHub: [@t-yanick](https://github.com/t-yanick)
+- Twitter: [@ElTazoh](https://twitter.com/eltazoh)
+- LinkedIn: [Tazoh Yanick Tazoh](https://www.linkedin.com/in/tazoh-yanick-tazoh)
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/t-yanick/tracking-app-with-react/issues).
 
-### Making a Progressive Web App
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Show your support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Give a ⭐️ if you like this project!
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `yarn build` fails to minify
+### Design:
+["Bodytrack.it "](https://www.behance.net/gallery/13271423/Bodytrackit-An-iOs-app-Branding-UX-and-UI) design idea by [Gregoire Vella](https://www.behance.net/gregoirevella) is licensed under [Creative Commons license of the design](https://creativecommons.org/licenses/by-nc/4.0/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Application:
+This project is [MIT](./LICENSE) licensed except for the design above
+
+## Acknowledgements
+* [Microverse](www.microverse.org) Senior Code Reviewers and Career Coaches
+* [Proptypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+* [Moment.js](https://momentjs.com/)
+* [axios](https://github.com/axios/axios)
+* [Pluralize](https://github.com/plurals/pluralize)
+* [Google Fonts](https://fonts.google.com/)
+* [Pixabay](https://pixabay.com/)
+* [React Icons](https://react-icons.github.io/react-icons)
+* [Iconify](https://iconify.design/icon-sets/)
