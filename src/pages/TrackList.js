@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import PropTypes, { arrayOf } from 'prop-types';
+import PropTypes from 'prop-types';
 import { moment } from '../helpers/api';
 import TrackListItem from '../components/TrackListItem';
 import { getTracks } from '../helpers/restTracks';
@@ -93,20 +93,20 @@ const mapStateToProps = (state) => ({
 TrackList.propTypes = {
   addTracks: PropTypes.func,
   addTrackDates: PropTypes.func,
-  loginUser: PropTypes.bool.isRequired,
-  items: PropTypes.instanceOf(Array),
-  tracks: PropTypes.instanceOf(arrayOf),
   addItems: PropTypes.func,
   trackDates: PropTypes.instanceOf(Array),
+  loginUser: PropTypes.bool.isRequired,
+  tracks: PropTypes.instanceOf(Array),
+  items: PropTypes.instanceOf(Array),
 };
 
 TrackList.defaultProps = {
   addTracks: null,
   addTrackDates: null,
-  items: [],
   addItems: null,
   trackDates: [],
   tracks: [],
+  items: [],
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackList);

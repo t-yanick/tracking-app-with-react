@@ -31,12 +31,10 @@ const AdminItemForm = ({
       setError('Alphabet is available and the number of letters should be between 1 and 9');
     }
   };
-
   const onIconChange = (e) => {
     const { value } = e.target;
     setInputIcon(value);
   };
-
   const onTargetChange = (e) => {
     const { value } = e.target;
     const regex = /^[0-9]{0,3}$/;
@@ -44,7 +42,7 @@ const AdminItemForm = ({
       setError('');
       setInputTarget(value);
     } else {
-      setError('Please provide a number with 3 digits');
+      setError('Please provide a number within 3 digit');
     }
   };
 
@@ -94,7 +92,7 @@ const AdminItemForm = ({
           <div className="form__title">Target</div>
           <input
             type="text"
-            name="target"
+            name="unit"
             placeholder="Item Target"
             value={inputTarget}
             onChange={onTargetChange}

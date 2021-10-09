@@ -14,7 +14,7 @@ const AdminAddItem = ({ history, adminStatus, loginUser }) => {
       await addNewItem(title, unit, icon, target);
       history.push('/admin');
     } catch {
-      setError('Unable to fetch data');
+      setError('Unable to fetch the data');
     }
   };
 
@@ -28,7 +28,7 @@ const AdminAddItem = ({ history, adminStatus, loginUser }) => {
     <div className="admin">
       <h1 className="heading">
         Admin Add Item
-        <span className="admin-icon">Admin</span>
+        <span className="admin-icon">admin</span>
       </h1>
       <div className="content">
         {error && <p className="error-msg">{error}</p>}
@@ -41,7 +41,7 @@ const AdminAddItem = ({ history, adminStatus, loginUser }) => {
 
 const mapStateToProps = (state, props) => ({
   items: state.items,
-  item: state.items.find((item) => item.id === Number(props.match.id)),
+  item: state.items.find((item) => item.id === Number(props.match.params.id)),
   adminStatus: state.user.user.admin,
   loginUser: state.user.logIn,
 });

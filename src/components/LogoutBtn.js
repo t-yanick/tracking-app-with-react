@@ -1,5 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { logIn, setUser } from '../actions/user';
+import { removeAllTracks } from '../actions/tracks';
+import { removeAllTrackDates } from '../actions/trackDates';
 
 const LogoutBtn = ({
   logIn, removeAllTracks, setUser, removeAllTrackDates,
@@ -17,6 +21,13 @@ const LogoutBtn = ({
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  logIn: (status) => dispatch(logIn(status)),
+  setUser: (user) => dispatch(setUser(user)),
+  removeAllTracks: () => dispatch(removeAllTracks()),
+  removeAllTrackDates: () => dispatch(removeAllTrackDates()),
+});
+
 LogoutBtn.propTypes = {
   logIn: PropTypes.func,
   removeAllTracks: PropTypes.func,
@@ -31,4 +42,4 @@ LogoutBtn.defaultProps = {
   setUser: null,
 };
 
-export default LogoutBtn;
+export default connect(undefined, mapDispatchToProps)(LogoutBtn);

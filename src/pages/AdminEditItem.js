@@ -14,13 +14,13 @@ const AdminEditItem = ({
     id, title, unit, icon, target,
   } = item;
 
-  const runUpdateItem = async (id, title, unit, icon, target) => {
+  const runUpdateItem = async (title, unit, icon, target) => {
     try {
       setError('');
       await updateItem(id, title, unit, icon, target);
       history.push('/admin');
     } catch {
-      setError('Sorry, unable to fetch data');
+      setError('Sorry, unable to fetch the data');
     }
   };
 
@@ -30,7 +30,7 @@ const AdminEditItem = ({
       await removeItemFromDB(id);
       history.push('/admin');
     } catch {
-      setError('Sorry, Unable to remove item');
+      setError('Sorry, unable to remove the item');
     }
   };
 

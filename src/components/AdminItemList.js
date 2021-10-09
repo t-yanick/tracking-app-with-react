@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import pluralize from 'pluralize';
 
-const AdminItemList = ({ items }) => {
+const AdminItemList = ({ items }) => (
   <div className="admin__list">
     {items.map((item) => {
       const {
@@ -21,8 +21,8 @@ const AdminItemList = ({ items }) => {
         </div>
       );
     })}
-  </div>;
-};
+  </div>
+);
 
 AdminItemList.propTypes = {
   items: PropTypes.instanceOf(Array),
