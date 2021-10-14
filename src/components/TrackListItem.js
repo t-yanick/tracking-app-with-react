@@ -53,9 +53,9 @@ const TrackListItem = ({ milSec, sameDateTracks, itemNum }) => {
             data={[['Pac Man', 'Percentage'], ['', rateForChart], ['', leftRateForChart]]}
             options={{
               legend: 'none',
-              pieStartAngle: 0,
               pieSliceText: 'none',
-              tooltip: { trigger: 'nine' },
+              pieStartAngle: 0,
+              tooltip: { trigger: 'none' },
               slices: {
                 0: { color: '#41b5e8' },
                 1: { color: '#eaeef1' },
@@ -64,7 +64,7 @@ const TrackListItem = ({ milSec, sameDateTracks, itemNum }) => {
             rootProps={{ 'data-testid': '6' }}
           />
         </div>
-        <div className="tracks__item__date">date format</div>
+        <div className="tracks__item__date">{moment(milSec).format('MMM Do YYYY')}</div>
         <div className="tracks__item__rate">
           {rateForChart >= 100 && (
             <span className="goodjob">

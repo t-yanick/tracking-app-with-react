@@ -27,7 +27,6 @@ const EditTrack = ({
       setError('Unable to fetch the item data');
     }
   };
-
   useEffect(() => {
     runGetItems();
   }, []);
@@ -37,7 +36,7 @@ const EditTrack = ({
       setError('');
       await updateTrack(trackId, result, itemId, date);
     } catch {
-      setError('Unable to update track');
+      setError('Unable to update the track');
     }
   };
 
@@ -46,7 +45,7 @@ const EditTrack = ({
       setError('');
       await addNewTrack(result, itemId, date);
     } catch {
-      setError('Unable to create new track');
+      setError('Unable to create new tracks');
     }
   };
 
@@ -69,7 +68,6 @@ const EditTrack = ({
       }, 800);
     }
   };
-
   const itemTitles = getItemTitles(items, sameDateTracks);
 
   return (loginUser ? (
@@ -79,7 +77,7 @@ const EditTrack = ({
         {error && <p className="error-msg">{error}</p>}
         <TrackForm handleSubmit={handleSubmit} itemTitles={itemTitles} targetDate={targetDate} />
         {msg && <p className="info-msg">{msg}</p>}
-        <Link to="/tracks" className="btn">Cancel $ Back</Link>
+        <Link to="/tracks" className="btn">Cancel & Back to Track List</Link>
       </div>
     </div>
   ) : <Redirect to="/" />);
@@ -112,5 +110,4 @@ EditTrack.defaultProps = {
   sameDateTracks: [],
   targetDate: null,
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(EditTrack);
