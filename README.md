@@ -1,6 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 # Tracking App built with React
-
+![Screenshots](./screenshots/screenshoot1.png)
+![Screenshots](./screenshots/screenshoot2.png)
+![Screenshots](./screenshots/screenshoot3.png)
 
 ## About the Project
 This responsive web application was built with React and Redux as the final project at Microverse.
