@@ -7,13 +7,13 @@ export const getTracks = async () => {
 };
 
 export const addNewTrack = async (result, itemId, date) => {
-  const response = await sendRequestWithData('post', 'records', { record: { result, itemId, date } })
+  const response = await sendRequestWithData('post', 'records', { record: { result, item_id: itemId, date } })
     .then((response) => response.data).catch((error) => error);
   return response;
 };
 
 export const updateTrack = async (id, result, itemId, date) => {
-  const response = await sendRequestWithData('put', `records/${id}`, { record: { result, itemId, date } })
+  const response = await sendRequestWithData('put', `records/${id}`, { record: { result, item_id: itemId, date } })
     .then((response) => response.data).catch((error) => error);
   return response;
 };
