@@ -51,6 +51,7 @@ e.g. $ git clone https://github.com/yourUsername/yourProjectName
 8. Go to helpers/baseUrl.js and rewrite the baseUrl like `http://localhost:3001/` so you can run this project in your local environment
 9. To run the server, run `npm start`
 10. To run the tests, run `npm test`
+11. N.B: Due to compatibility issues and of which I will update my `node-sass` soon, to run this project as of now, you need to be using `node v16` or a `lower version`
 
 ## How to use this app as a user
 
