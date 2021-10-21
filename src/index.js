@@ -1,17 +1,38 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import configureStore from './store/configureStore';
+import AppRouter from './routers/AppRouter';
+import { decode } from './helpers/api';
+import { setUser, logIn } from './actions/user';
+import { autoLogin } from './helpers/authUsers';
+import './assets/styles/style.scss';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const store = configureStore();
+
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const runAutoLogin = async (userId) => {
+  const response = await autoLogin(userId);
+  if (response.logged_in) {
+    store.dispatch(setUser(response.user));
+    store.dispatch(logIn(true));
+  } else {
+    store.dispatch(logIn(false));
+    store.dispatch(setUser({}));
+    localStorage.clear();
+  }
+};
+
+if (localStorage.token) {
+  const decodedToken = decode(localStorage.token);
+  runAutoLogin(decodedToken.user_id);
+} else {
+  store.dispatch(logIn(false));
+}
+
+ReactDOM.render(jsx, document.getElementById('root'));
